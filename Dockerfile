@@ -17,7 +17,8 @@ RUN apt-get -y update \
     curl \
     wget \
     git \
-    build-essential
+    build-essential \
+    erlang-xmerl
 
 # For some reason, installing Elixir tries to remove this file
 # and if it doesn't exist, Elixir won't install. So, we create it.
