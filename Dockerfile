@@ -32,7 +32,7 @@ RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
     && apt-get update
 
 # Elixir package
-RUN apt-get install -y elixir erlang-dev erlang-parsetools \
+RUN apt-get install -y elixir erlang-dev erlang-parsetools erlang-tools \
     && rm erlang-solutions_1.0_all.deb
 
 ENV PHOENIX_VERSION 1.2.0
