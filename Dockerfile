@@ -4,13 +4,7 @@ FROM ubuntu:latest
 
 MAINTAINER Martin Vrkljan <mvrkljan@gmail.com>
 
-# UTF-8
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-
-# Dependency packages
+# Dependency packages and locales
 RUN apt-get -y update \
     && apt-get upgrade -y \
     && apt-get install -y \
@@ -18,7 +12,14 @@ RUN apt-get -y update \
     wget \
     git \
     build-essential \
-    erlang-xmerl
+    erlang-xmerl \
+    locales \
+    && locale-gen en_US.UTF-8
+
+# UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # For some reason, installing Elixir tries to remove this file
 # and if it doesn't exist, Elixir won't install. So, we create it.
