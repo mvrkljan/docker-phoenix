@@ -36,10 +36,8 @@ RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
 RUN apt-get install -y elixir erlang-dev erlang-parsetools erlang-tools \
     && rm erlang-solutions_1.0_all.deb
 
-ENV PHOENIX_VERSION 1.2.0
-
 # Phoenix Mix archive
-RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new-$PHOENIX_VERSION.ez
+RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 
 # Hex and Rebar
 RUN mix local.hex --force \
