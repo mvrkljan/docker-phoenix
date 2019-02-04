@@ -1,4 +1,5 @@
 # Based on marcelocg/phoenix
+# Latest: Elixir 1.8.1, Phoenix 1.3.4
 
 FROM ubuntu:latest
 
@@ -36,11 +37,11 @@ RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
 RUN apt-get install -y elixir erlang-dev erlang-parsetools erlang-tools \
     && rm erlang-solutions_1.0_all.deb
 
-# Phoenix Mix archive
-RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phx_new.ez
-
 # Hex and Rebar
 RUN mix local.hex --force \
     && mix local.rebar --force
+
+# Phoenix Mix archive
+RUN mix archive.install hex phx_new 1.4.0 --force
 
 WORKDIR /code
