@@ -1,5 +1,5 @@
 # Based on marcelocg/phoenix
-# Latest: Elixir 1.8.1, Phoenix 1.3.4
+# Latest: Elixir 1.8.1, Phoenix 1.4.0
 
 FROM ubuntu:latest
 
